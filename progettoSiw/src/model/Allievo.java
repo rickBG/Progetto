@@ -11,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Allievi {
+public class Allievo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -34,7 +34,7 @@ public class Allievi {
 	@Column(nullable = false)
 	private String luogoNascita;
 
-	public Allievi(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
+	public Allievo(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
 		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
