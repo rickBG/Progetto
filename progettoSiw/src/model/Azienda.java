@@ -32,5 +32,6 @@ public class Azienda {
 	public Azienda(Long id) {
 		this.id = id;
 		this.centroFormazione = new LinkedList<>();
+		this.allievo = new LinkedList<>();
 	}
 }
