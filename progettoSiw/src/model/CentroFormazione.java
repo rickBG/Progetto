@@ -1,17 +1,14 @@
-package progettoSiw;
-
-import java.util.Date;
+package model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
-public class Allievi {
+public class CentroFormazione {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -19,29 +16,25 @@ public class Allievi {
 	@Column(nullable = false)
 	private String nome;
 	
-	@Column(nullable = false)
-	private String cognome;
+	@Column(unique = true, nullable = false)
+	private String indirizzo;
 	
-	@Column(nullable = false, unique = true)
+	@Column(unique = true, nullable = false)
 	private String email;
 	
-	@Column(nullable = false, unique = true)
+	@Column(unique = true,nullable = false)
 	private int telefono;
 	
-	@Temporal(TemporalType.DATE)
-	private Date data;
-	
 	@Column(nullable = false)
-	private String luogoNascita;
-
-	public Allievi(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
+	private int capMaxAllievi;
+	
+	public CentroFormazione(Long id, String nome, String indirizzo, String email, int telefono, int capMaxAllievi) {
 		this.id = id;
 		this.nome = nome;
-		this.cognome = cognome;
 		this.email = email;
+		this.indirizzo = indirizzo;
 		this.telefono = telefono;
-		this.data = data;
-		this.luogoNascita = luogoNascita;
+		this.capMaxAllievi = capMaxAllievi;
 	}
 
 	public Long getId() {
@@ -60,12 +53,12 @@ public class Allievi {
 		this.nome = nome;
 	}
 
-	public String getCognome() {
-		return cognome;
+	public String getIndirizzo() {
+		return indirizzo;
 	}
 
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
 	}
 
 	public String getEmail() {
@@ -84,19 +77,11 @@ public class Allievi {
 		this.telefono = telefono;
 	}
 
-	public Date getData() {
-		return data;
+	public int getCapMaxAllievi() {
+		return capMaxAllievi;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setCapMaxAllievi(int capMaxAllievi) {
+		this.capMaxAllievi = capMaxAllievi;
 	}
-
-	public String getLuogoNascita() {
-		return luogoNascita;
-	}
-
-	public void setLuogoNascita(String luogoNascita) {
-		this.luogoNascita = luogoNascita;
-	}	
 }

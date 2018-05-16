@@ -1,4 +1,4 @@
-package progettoSiw;
+package model;
 
 import java.util.Date;
 
