@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,9 @@ public class Azienda {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 
+	@Column(nullable = false, unique = true)
+	private String nome;
+
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Responsabile responsabile;
 
@@ -26,9 +30,10 @@ public class Azienda {
 	@OneToMany(mappedBy = "azienda")
 	private List<Allievo> allievo;
 
-	public Azienda(Long id) {
+	public Azienda(Long id, String nome) {
 		this.id = id;
 		this.centroFormazione = new LinkedList<>();
 		this.allievo = new LinkedList<>();
+		this.nome = nome;
 	}
 }
