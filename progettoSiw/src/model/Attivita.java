@@ -2,11 +2,13 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -15,15 +17,18 @@ public class Attivita {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(nullable = false, unique = true)
 	private String nome;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date data;
-	
+
 	@Column(nullable = false)
 	private int orario;
+
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	private CentroFormazione centroFormazione;
 
 	public Attivita(Long id, String nome, Date data, int orario) {
 		this.id = id;

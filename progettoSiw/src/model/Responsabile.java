@@ -18,6 +18,7 @@ public class Responsabile {
 	
 	@Column(nullable = false)
 	private String ruolo;
+	
 
 	public Responsabile(Long id, String nome, String ruolo) {
 		this.id = id;
