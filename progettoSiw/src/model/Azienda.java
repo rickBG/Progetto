@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -22,11 +21,9 @@ public class Azienda {
 	private Responsabile responsabile;
 
 	@OneToMany(mappedBy = "azienda")
-	@JoinColumn(name = "centroFormazione")
 	private List<CentroFormazione> centroFormazione;
 
 	@OneToMany(mappedBy = "azienda")
-	@JoinColumn(name = "allievo")
 	private List<Allievo> allievo;
 
 	public Azienda(Long id) {

@@ -1,16 +1,12 @@
 package model;
 
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,12 +24,10 @@ public class Iscrizione {
 	@Column(nullable = false)
 	private int orario_iscrizione;
 	
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-	@JoinColumn(name = "attivita")
-	private List<Attivita> attivita;
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	private Attivita attivita;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-	@JoinColumn(name = "allievo")
 	private Allievo allievo;
 
 	public Iscrizione(Long id, Date data_iscrizione, int orario_iscrizione) {

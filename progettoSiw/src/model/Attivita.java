@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -32,7 +32,7 @@ public class Attivita {
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private CentroFormazione centroFormazione;
 	
-	@ManyToMany(mappedBy="attivita")
+	@OneToMany(mappedBy="attivita")
 	private List<Iscrizione> iscrizioni;
 
 	public Attivita(Long id, String nome, Date data, int orario) {
