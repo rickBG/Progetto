@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -38,6 +40,9 @@ public class Allievo {
 
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Azienda azienda;
+	
+	@OneToMany(mappedBy="allievo")
+	private List<Iscrizione> iscrizioni;
 
 	public Allievo(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
 		this.id = id;
