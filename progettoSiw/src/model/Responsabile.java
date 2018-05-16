@@ -8,17 +8,16 @@ import javax.persistence.Id;
 
 @Entity
 public class Responsabile {
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(nullable = false)
 	private String nome;
-	
+
 	@Column(nullable = false)
 	private String ruolo;
-	
 
 	public Responsabile(Long id, String nome, String ruolo) {
 		this.id = id;

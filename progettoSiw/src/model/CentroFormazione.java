@@ -1,5 +1,6 @@
 package model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -50,6 +51,7 @@ public class CentroFormazione {
 		this.indirizzo = indirizzo;
 		this.telefono = telefono;
 		this.capMaxAllievi = capMaxAllievi;
+		this.attivita = new LinkedList<>();
 	}
 
 	public Long getId() {

@@ -2,11 +2,13 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -15,24 +17,27 @@ public class Allievo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(nullable = false)
 	private String nome;
-	
+
 	@Column(nullable = false)
 	private String cognome;
-	
+
 	@Column(nullable = false, unique = true)
 	private String email;
-	
+
 	@Column(nullable = false, unique = true)
 	private int telefono;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date data;
-	
+
 	@Column(nullable = false)
 	private String luogoNascita;
+
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	private Azienda azienda;
 
 	public Allievo(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
 		this.id = id;
