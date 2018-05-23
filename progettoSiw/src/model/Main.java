@@ -1,13 +1,7 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.Persistence;
 
 public class Main {
@@ -95,6 +89,69 @@ public class Main {
 //
 //		public void setLastName(String lastName) {
 //			this.surname = lastName;
+//		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	public interface CustomerRepository {
+//		
+//		public void save(Customer customer);
+//		public Customer findByPrimary(Long id);
+//		public List<Customer> findAll();
+//		public void update(Customer customer);
+//		public void delete(Customer customer);
+//	}
+	
+	
+	
+	
+	
+	
+	
+//	public class CustomerJpaRepository implements CustomerRepository {
+//		
+//		private EntityManager em;
+//		
+//		public CustomerJpaRepository(EntityManager em) {
+//			this.em = em;
+//		}
+//		
+//		@Override
+//		public void save(Customer customer) {
+//			// TODO Auto-generated method stub
+//			em.persist(customer);
+//		}
+//
+//		@Override
+//		public Customer findByPrimary(Long id) {
+//			// TODO Auto-generated method stub
+//			return em.find(Customer.class , id);
+//		}
+//
+//		@Override
+//		public List<Customer> findAll() {
+//			// TODO Auto-generated method stub
+//			return em.createNamedQuery("findAllCustomers", Customer.class).getResultList();
+//		}
+//
+//		@Override
+//		public void update(Customer customer) {
+//			// TODO Auto-generated method stub
+//			em.merge(customer);
+//		}
+//
+//		@Override
+//		public void delete(Customer customer) {
+//			// TODO Auto-generated method stub
+//			em.remove(customer);		
 //		}
 }
 
