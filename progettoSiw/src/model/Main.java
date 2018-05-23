@@ -1,7 +1,13 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Persistence;
 
 public class Main {
@@ -40,5 +46,55 @@ public class Main {
 //
 //5-gestioneRendimentoOgniCentro
     }
+	
+	
+	
+//	@NamedQuery(name="findAllCustomers", query = "SELECT c FROM Customer")
+//	@Entity
+//	public class Customer {
+//
+//		@Id
+//		@GeneratedValue(strategy= GenerationType.AUTO)
+//		private Long id;
+//		
+//		@Column(nullable=false)
+//		private String name;
+//		
+//		@Column(nullable=false)
+//		private String surname;
+//		
+//		public Customer() {
+//			
+//		}
+//
+//		public Customer(Long id, String firstName, String lastName) {
+//			this.id = id;
+//			this.name = firstName;
+//			this.surname = lastName;
+//		}
+//		
+//		public Long getId() {
+//			return id;
+//		}
+//
+//		public void setId(Long id) {
+//			this.id = id;
+//		}
+//
+//		public String getFirstName() {
+//			return name;
+//		}
+//
+//		public void setFirstName(String firstName) {
+//			this.name = firstName;
+//		}
+//
+//		public String getLastName() {
+//			return surname;
+//		}
+//
+//		public void setLastName(String lastName) {
+//			this.surname = lastName;
+//		}
 }
 
