@@ -23,10 +23,9 @@ public class Responsabile {
 	private String ruolo;
 
 	@OneToOne
-	@JoinColumn(name = "responsabile_id")
 	private Azienda azienda;
 
-	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "responsabile")
+	@OneToOne(mappedBy = "responsabile")
 	private CentroFormazione centroFormazione;
 
 

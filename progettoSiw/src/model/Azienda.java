@@ -23,7 +23,7 @@ public class Azienda {
 	private String nome;
 
 	@OneToMany
-	@JoinColumn(name = "azienda_id")
+	@JoinColumn(name = "azienda_responsabile_id")
 	private List<Responsabile> responsabile;
 
 	@OneToMany
@@ -31,13 +31,14 @@ public class Azienda {
 	private List<CentroFormazione> centroFormazione;
 
 	@OneToMany
-	@JoinColumn(name = "allievo_id")
+	@JoinColumn(name = "azienda_id")
 	private List<Allievo> allievo;
 
 	public Azienda(Long id, String nome) {
 		this.id = id;
 		this.centroFormazione = new LinkedList<>();
 		this.allievo = new LinkedList<>();
+		this.responsabile = new LinkedList<>();
 		this.nome = nome;
 	}
 }
