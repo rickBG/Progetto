@@ -23,11 +23,11 @@ public class Azienda {
 	private String nome;
 
 	@OneToMany
-	@JoinColumn(name = "responsabile_id")
+	@JoinColumn(name = "azienda_id")
 	private List<Responsabile> responsabile;
 
 	@OneToMany
-	@JoinColumn(name = "centro_id")
+	@JoinColumn(name = "azienda_id")
 	private List<CentroFormazione> centroFormazione;
 
 	@OneToMany
