@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -38,11 +39,8 @@ public class Allievo {
 	@Column(nullable = false)
 	private String luogoNascita;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private Azienda azienda;
-	
-	@OneToMany(mappedBy="allievo")
-	private List<Iscrizione> iscrizioni;
+	@ManyToMany(mappedBy = "allievo")
+	private List<Attivita> attivita;
 
 	public Allievo(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
 		this.id = id;

@@ -1,10 +1,12 @@
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Responsabile {
@@ -18,6 +20,13 @@ public class Responsabile {
 
 	@Column(nullable = false)
 	private String ruolo;
+
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	private Azienda azienda;
+
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "responsabile")
+	private CentroFormazione centroFormazione;
+
 
 	public Responsabile(Long id, String nome, String ruolo) {
 		this.id = id;

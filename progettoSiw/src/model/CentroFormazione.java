@@ -38,9 +38,6 @@ public class CentroFormazione {
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Responsabile responsabile;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private Azienda azienda;
-
 	@OneToMany(mappedBy = "centroFormazione")
 	private List<Attivita> attivita;
 

@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -21,13 +22,16 @@ public class Azienda {
 	@Column(nullable = false, unique = true)
 	private String nome;
 
-	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private Responsabile responsabile;
+	@OneToMany
+	@JoinColumn(name = "responsabile_id")
+	private List<Responsabile> responsabile;
 
-	@OneToMany(mappedBy = "azienda")
+	@OneToMany
+	@JoinColumn(name = "centro_id")
 	private List<CentroFormazione> centroFormazione;
 
-	@OneToMany(mappedBy = "azienda")
+	@OneToMany
+	@JoinColumn(name = "allievo_id")
 	private List<Allievo> allievo;
 
 	public Azienda(Long id, String nome) {
