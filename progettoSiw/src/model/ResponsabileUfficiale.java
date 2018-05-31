@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Responsabile {
+public class ResponsabileUfficiale {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,14 +22,12 @@ public class Responsabile {
 	@Column(nullable = false)
 	private String ruolo;
 
-	@OneToOne
-	private Azienda azienda;
 
-	@OneToOne(mappedBy = "responsabile")
-	private CentroFormazione centroFormazione;
+	@OneToOne(mappedBy = "responsabileUfficiale")
+	private CentroOperativo centroOperativo;
 
 
-	public Responsabile(Long id, String nome, String ruolo) {
+	public ResponsabileUfficiale(Long id, String nome, String ruolo) {
 		this.id = id;
 		this.nome = nome;
 		this.ruolo = ruolo;

@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Azienda {
+public class Finanza {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -23,22 +23,22 @@ public class Azienda {
 	private String nome;
 
 	@OneToMany
-	@JoinColumn(name = "azienda_responsabile_id")
-	private List<Responsabile> responsabile;
+	@JoinColumn(name = "finanza_responsabileUfficiale_id")
+	private List<ResponsabileUfficiale> responsabileUfficiale;
 
 	@OneToMany
-	@JoinColumn(name = "azienda_id")
-	private List<CentroFormazione> centroFormazione;
+	@JoinColumn(name = "finanza_id")
+	private List<CentroOperativo> centroOperativo;
 
 	@OneToMany
-	@JoinColumn(name = "azienda_id")
-	private List<Allievo> allievo;
+	@JoinColumn(name = "finanza_id")
+	private List<AllievoFinanziere> allievoFinanziere;
 
-	public Azienda(Long id, String nome) {
+	public Finanza(Long id, String nome) {
 		this.id = id;
-		this.centroFormazione = new LinkedList<>();
-		this.allievo = new LinkedList<>();
-		this.responsabile = new LinkedList<>();
+		this.centroOperativo = new LinkedList<>();
+		this.allievoFinanziere = new LinkedList<>();
+		this.responsabileUfficiale = new LinkedList<>();
 		this.nome = nome;
 	}
 }

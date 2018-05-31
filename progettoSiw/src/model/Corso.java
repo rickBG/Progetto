@@ -16,7 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Attivita {
+public class Corso {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -31,12 +31,12 @@ public class Attivita {
 	private int orario;
 
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private CentroFormazione centroFormazione;
+	private CentroOperativo centroOperativo;
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private List<Allievo> allievo;
+	private List<AllievoFinanziere> allievoFinanziere;
 
-	public Attivita(Long id, String nome, Date data, int orario) {
+	public Corso(Long id, String nome, Date data, int orario) {
 		this.id = id;
 		this.nome = nome;
 		this.data = data;

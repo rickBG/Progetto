@@ -14,17 +14,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class CentroFormazione {
+public class CentroOperativo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 
 	@Column(nullable = false)
-	private String nome;//
+	private String nome;
 
 	@Column(unique = true, nullable = false)
-	private String indirizzo;
+	private String indirizzo;//
 
 	@Column(unique = true, nullable = false)
 	private String email;
@@ -36,19 +36,19 @@ public class CentroFormazione {
 	private int capMaxAllievi;
 
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private Responsabile responsabile;
+	private ResponsabileUfficiale responsabileUfficiale;
 
-	@OneToMany(mappedBy = "centroFormazione")
-	private List<Attivita> attivita;
+	@OneToMany(mappedBy = "centroOperativo")
+	private List<Corso> corso;
 
-	public CentroFormazione(Long id, String nome, String indirizzo, String email, int telefono, int capMaxAllievi) {
+	public CentroOperativo(Long id, String nome, String indirizzo, String email, int telefono, int capMaxAllievi) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.indirizzo = indirizzo;
 		this.telefono = telefono;
 		this.capMaxAllievi = capMaxAllievi;
-		this.attivita = new LinkedList<>();
+		this.corso = new LinkedList<>();
 	}
 
 	public Long getId() {

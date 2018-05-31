@@ -14,7 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Allievo {
+public class AllievoFinanziere {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -37,10 +37,10 @@ public class Allievo {
 	@Column(nullable = false)
 	private String luogoNascita;
 
-	@ManyToMany(mappedBy = "allievo")
-	private List<Attivita> attivita;
+	@ManyToMany(mappedBy = "allievoFinanziere")
+	private List<Corso> corso;
 
-	public Allievo(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
+	public AllievoFinanziere(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
 		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
