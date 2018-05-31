@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -39,7 +38,7 @@ public class CentroOperativo {
 	private ResponsabileUfficiale responsabileUfficiale;
 
 	@OneToMany(mappedBy = "centroOperativo")
-	private List<Corso> corso;
+	private List<Corso> corsi;
 
 	public CentroOperativo(Long id, String nome, String indirizzo, String email, int telefono, int capMaxAllievi) {
 		this.id = id;
@@ -48,7 +47,7 @@ public class CentroOperativo {
 		this.indirizzo = indirizzo;
 		this.telefono = telefono;
 		this.capMaxAllievi = capMaxAllievi;
-		this.corso = new LinkedList<>();
+		this.corsi = new LinkedList<>();
 	}
 
 	public Long getId() {
@@ -97,5 +96,21 @@ public class CentroOperativo {
 
 	public void setCapMaxAllievi(int capMaxAllievi) {
 		this.capMaxAllievi = capMaxAllievi;
+	}
+
+	public ResponsabileUfficiale getResponsabileUfficiale() {
+		return responsabileUfficiale;
+	}
+
+	public void setResponsabileUfficiale(ResponsabileUfficiale responsabileUfficiale) {
+		this.responsabileUfficiale = responsabileUfficiale;
+	}
+
+	public List<Corso> getCorsi() {
+		return corsi;
+	}
+
+	public void setCorsi(List<Corso> corsi) {
+		this.corsi = corsi;
 	}
 }

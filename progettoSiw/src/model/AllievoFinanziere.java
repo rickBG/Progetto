@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -37,8 +38,8 @@ public class AllievoFinanziere {
 	@Column(nullable = false)
 	private String luogoNascita;
 
-	@ManyToMany(mappedBy = "allievoFinanziere")
-	private List<Corso> corso;
+	@ManyToMany(mappedBy = "allieviFinanzieri")
+	private List<Corso> corsi;
 
 	public AllievoFinanziere(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
 		this.id = id;
@@ -48,6 +49,7 @@ public class AllievoFinanziere {
 		this.telefono = telefono;
 		this.data = data;
 		this.luogoNascita = luogoNascita;
+		this.corsi = new LinkedList<>();
 	}
 
 	public Long getId() {
@@ -104,5 +106,15 @@ public class AllievoFinanziere {
 
 	public void setLuogoNascita(String luogoNascita) {
 		this.luogoNascita = luogoNascita;
+	}
+
+	public List<Corso> getCorso() {
+		return corsi;
+	}
+
+	public void setCorso(List<Corso> corso) {
+		this.corsi = corso;
 	}	
+	
+	
 }

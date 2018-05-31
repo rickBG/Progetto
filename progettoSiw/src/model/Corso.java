@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -34,13 +34,14 @@ public class Corso {
 	private CentroOperativo centroOperativo;
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private List<AllievoFinanziere> allievoFinanziere;
+	private List<AllievoFinanziere> allieviFinanzieri;
 
 	public Corso(Long id, String nome, Date data, int orario) {
 		this.id = id;
 		this.nome = nome;
 		this.data = data;
 		this.orario = orario;
+		this.allieviFinanzieri = new LinkedList<>();
 	}
 
 	public Long getId() {
@@ -73,5 +74,21 @@ public class Corso {
 
 	public void setOrario(int orario) {
 		this.orario = orario;
+	}
+
+	public CentroOperativo getCentroOperativo() {
+		return centroOperativo;
+	}
+
+	public void setCentroOperativo(CentroOperativo centroOperativo) {
+		this.centroOperativo = centroOperativo;
+	}
+
+	public List<AllievoFinanziere> getAllieviFinanzieri() {
+		return allieviFinanzieri;
+	}
+
+	public void setAllieviFinanzieri(List<AllievoFinanziere> allieviFinanzieri) {
+		this.allieviFinanzieri = allieviFinanzieri;
 	}	
 }

@@ -1,8 +1,7 @@
 package model;
 
+import java.util.LinkedList;
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,13 +29,14 @@ public class DirettoreGenerale {
 
 	@OneToMany
 	@JoinColumn(name = "direttoreGenerale_id")
-	private List<CentroOperativo> centroOperativo;
+	private List<CentroOperativo> centriOperativi;
 
 
 	public DirettoreGenerale(Long id, String nome, String ruolo) {
 		this.id = id;
 		this.nome = nome;
 		this.ruolo = ruolo;
+		this.centriOperativi = new LinkedList<>();
 	}
 
 	public Long getId() {
@@ -61,5 +61,21 @@ public class DirettoreGenerale {
 
 	public void setRuolo(String ruolo) {
 		this.ruolo = ruolo;
+	}
+
+	public Finanza getFinanza() {
+		return finanza;
+	}
+
+	public void setFinanza(Finanza finanza) {
+		this.finanza = finanza;
+	}
+
+	public List<CentroOperativo> getCentriOperativi() {
+		return centriOperativi;
+	}
+
+	public void setCentriOperativi(List<CentroOperativo> centriOperativi) {
+		this.centriOperativi = centriOperativi;
 	}	
 }
