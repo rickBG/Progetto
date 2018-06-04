@@ -8,4 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AtletaRepository extends CrudRepository<Atleta, Long> {
 	  List<Atleta> findByCognome(String cognome);
+
+	void delete(Long id);
+
+	Atleta findOne(Long id);
 }

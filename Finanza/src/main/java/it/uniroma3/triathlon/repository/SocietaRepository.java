@@ -8,4 +8,8 @@ import it.uniroma3.triathlon.model.Societa;
 
 public interface SocietaRepository extends CrudRepository<Societa, Long> {
 	  List<Societa> findByRegione(String regione);
+
+	Societa findOne(Long id);
+
+	void delete(Long id);
 }

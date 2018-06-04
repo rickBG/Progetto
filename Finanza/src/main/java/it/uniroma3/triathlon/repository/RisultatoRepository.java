@@ -9,5 +9,7 @@ import it.uniroma3.triathlon.model.Risultato;
 public interface RisultatoRepository extends CrudRepository<Risultato, Long> {
 	
 	public Risultato findByAtletaPartecipanteAndGara(Atleta atleta, Gara gara);
+
+	public Risultato findOne(Long id);
 	
 }

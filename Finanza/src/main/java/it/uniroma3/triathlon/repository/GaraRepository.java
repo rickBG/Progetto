@@ -11,4 +11,8 @@ public interface GaraRepository extends CrudRepository<Gara, Long> {
 	
 	List<Gara> findByDataSvolgimento(LocalDate dataSvolgimento);
 
+	void delete(Long id);
+
+	Gara findOne(Long id);
+
 }
